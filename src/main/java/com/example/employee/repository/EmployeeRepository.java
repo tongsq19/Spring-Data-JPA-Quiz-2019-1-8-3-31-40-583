@@ -1,6 +1,7 @@
 package com.example.employee.repository;
 
 import com.example.employee.entity.Employee;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -31,5 +32,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query("update Employee e set e.name = ?2 where e.name = ?1")
     Integer updateEmployeeName(String from, String to);
 
+
     //7.删除姓名是*的employee
+    List<Employee> deleteByName(String xiaohong);
 }
